@@ -1,0 +1,70 @@
+Music theory basics
+Notes in are numbered 0-11 with 0 being the key center in midi
+for example C major
+
+0 	  1	    2     3    4	5     6	     7	    8	   9	   10	     11	 
+C   C#/Db   D	D#/Eb  E    F   F#/Gb    G	  G#/Ab    A      A#/Bb      B
+
+Notes are either a whole or a half step apart, notes that are a whole step apart have a note between them for example A, A#/Bb, B. Notes between regular notes (notes without a sharp (#) or flat modifier (b) can have two names for example, A# and Bb are the same pitch.
+
+Scales: Scales are the notes in a key. A key is determined by the starting pitch and the required intervals between notes. 
+A major scale has the step pattern:
+whole step = w
+half step = h
+in the key of c:
+ w->w->h->w->w->w->h
+C->D->E->F->G->A->B->C
+
+In the key of c, the notes (e and f) and (b and c) are a half step apart, meaning there is no such thing as "B#" or "Fb"
+
+to make a scale minor, you give it the step pattern
+ w->h->h->w->w->h->w
+C->D->Eb->F->G->Ab->Bb->C
+
+In other words, "flat" the 3rd, the 6th and the 7th
+
+To get a major key's relative minor scale, start on the 6th note and follow the notes in the major key
+
+In the key of C, the 6th note of the scale is A. The scale starting on A is
+A->B->C->D->E->F->G->A
+ w->h->h->w->w->h->w
+
+Keys:
+A musical "key" is the major scale built on this step pattern starting on any given note. To denote a key, the number of sharp or flat notes are counted. C is has no sharps or flats
+
+for example, the Bb major scale has 2 flats
+Bb C D Eb F G A
+
+In midi:
+number of sharps or flats 
+-7 = 7 flats 
+0 = key of C 
++7 = 7 sharps
+
+Chords: Chords are just stacks of notes with an interval of a third between notes. A a whole step is also called a second, and all other intervals are named the same way (4th, 5th, etc.)
+
+Like scales, chords can be major or minor. They can be labeled by thier base note, or their roman numeral relative to the key center (C in this case)
+
+C major 7(I7)		C minor7 (i7)
+B(7)				Bb(b7)
+G(5)				G(5)
+E(3)				Eb(b3)	
+C(1)				C(1)
+
+
+
+A perfect authentic cadence is the chord progression ii->V7->I or G7->D minor7->Cmajor:
+Perfect Authentic Cadence: Key of C (0)
+ii7      V7  	I
+C(1)	F(4)
+A(6)  	D(2)  	G(5)
+F(4)  	B(7)  	E(3)
+D(2)  	G(5)  	C(1)
+This is what we are trying to predict, as it is basically what defines the end of a musical phrase. 
+
+Think of the final line of "twinkle twinkle little star":
+... how i wonder 	 what you 		are.
+ 	   ii7       	   V7  	 	     I
+
+Chords have rules of movement, and this particular movement is always within the rules. In a piece with a 4/4 time signature, cadences always come in measures with a multiple of 4. 
+
