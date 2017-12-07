@@ -1,13 +1,28 @@
+#!/bin/sh
 INPUT_DIRECTORY=./midis
 
 CONFIG=performance
 
 SEQUENCES_TFRECORD=./tmp/notesequences.tfrecord
 
-convert_dir_to_note_sequences --input_dir=$INPUT_DIRECTORY --output_file=$SEQUENCES_TFRECORD --recursive
+# Converts the midis into a protocol buffer format.
+convert_dir_to_note_sequences \
+--input_dir=./midis \
+--output_file=.out/notesequences.tfrecord \
+--recursive
 
-performance_rnn_create_dataset --config=$CONFIG --input=$SEQUENCES_TFRECORD --output_dir=./tmp/performance_rnn/sequence_examples --eval_ratio=0.10
+# Creates the data set relevant to generating melodies.
+melody_rnn_create_dataset \
+# the basic_rnn has no frills
+--config=basic_rnn \
+--input=.out/notesequences.tfrecord \
+--output_dir=.out/melody_rnn/sequence_examples \
+# The ratio of data to use for evaluation
+--eval_ratio=0.10
 
-performance_rnn_train --config=$CONFIG --run_dir=./tmp/performance_rnn_train/logdir/run1 --sequence_example_file=./tmp/performance_rnn/sequence_examples/training_performances.tfrecord
-
-performance_rnn_train --config=$CONFIG --run_dir=./tmp/performance_rnn_train/logdir/run1 --sequence_example_file=./tmp/performance_rnn/sequence_examples/training_performances.tfrecord --eval
+# Trains the RNN model. This training runs forever generating checkpoints as it runs.
+# The check points are used by the generation script.
+melody_rnn_train \
+--config=basic_rnn \
+--run_dir=.out/melody_rnn_train/logdir/run1 \
+--sequence_example_file=./out/melody_rnn/sequence_examples/training_melodies.tfrecord
