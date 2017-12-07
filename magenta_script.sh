@@ -1,10 +1,3 @@
-#!/bin/sh
-INPUT_DIRECTORY=./midis
-
-CONFIG=performance
-
-SEQUENCES_TFRECORD=./tmp/notesequences.tfrecord
-
 # Converts the midis into a protocol buffer format.
 convert_dir_to_note_sequences \
 --input_dir=./midis \
